@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise for My Love</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a0638, #3d0a5f, #6a0dad);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            z-index: 2;
+            flex: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .header-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .title {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b8a, #ffd6a5, #fff19c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(255, 107, 138, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #e0c7ff;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .left-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .right-section {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #ffd6a5;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Container for love message and photo */
+        .love-message-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        
+        .message-container {
+            flex: 1;
+        }
+
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #f0e6ff;
+            margin-bottom: 20px;
+        }
+
+        /* Photo frame for your girlfriend - UPDATED */
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b8a, #ffd6a5);
+            padding: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .princess-text {
+            position: absolute;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            z-index: 2;
+            background: rgba(255, 107, 138, 0.7);
+            border-radius: 20px;
+            width: 90%;
+        }
+        
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .photo-placeholder i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        .cake-container {
+            position: relative;
+            margin: 20px auto 30px;
+            width: 220px;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cake {
+            position: relative;
+            width: 180px;
+            height: 100px;
+            background: linear-gradient(to bottom, #ff9ab3, #ff6b8a);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 60px;
+        }
+
+        .cake::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to bottom, #ffd6a5, #ffb38a);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .candle-container {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .candle {
+            position: relative;
+            width: 10px;
+            height: 50px;
+            background: linear-gradient(to right, #f8d7da, #e9b0c0);
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+        }
+
+        .flame {
+            position: absolute;
+            width: 18px;
+            height: 25px;
+            background: linear-gradient(to bottom, #ffde7d, #ff9a3d);
+            border-radius: 50% 50% 20% 20%;
+            top: -28px;
+            left: -4px;
+            box-shadow: 0 0 14px rgba(255, 165, 0, 0.9);
+            transition: all 0.5s ease;
+            transform-origin: 50% 100%;
+            animation: flicker 1.5s infinite alternate, sway 2s ease-in-out infinite, glowPulse 2s ease-in-out infinite;
+        }
+        .flame::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 15px;
+            left: 50%;
+            top: 4px;
+            transform: translateX(-50%);
+            background: radial-gradient(circle at 50% 30%, #fff7b3, #ffcc66);
+            border-radius: 50% 50% 20% 20%;
+            filter: blur(0.3px);
+            opacity: 0.9;
+        }
+        .flame::before {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -60%);
+            background: radial-gradient(circle, rgba(255,200,0,0.25), rgba(255,200,0,0));
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(6px);
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(0.98); opacity: 1; }
+        }
+        @keyframes sway {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(2deg) scale(1.02); }
+            100% { transform: rotate(-1.5deg) scale(0.98); }
+        }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 10px rgba(255, 165, 0, 0.6), 0 0 20px rgba(255, 165, 0, 0.3); }
+            50% { box-shadow: 0 0 16px rgba(255, 165, 0, 0.9), 0 0 30px rgba(255, 165, 0, 0.5); }
+            100% { box-shadow: 0 0 12px rgba(255, 165, 0, 0.7), 0 0 22px rgba(255, 165, 0, 0.4); }
+        }
+
+        .smoke {
+            position: absolute;
+            top: -35px;
+            width: 4px;
+            height: 15px;
+            background: rgba(200, 200, 200, 0.7);
+            border-radius: 50%;
+            opacity: 0;
+            filter: blur(0.5px);
+        }
+
+        .wick {
+            position: absolute;
+            width: 2px;
+            height: 8px;
+            background: #333;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .blown-out .flame {
+            animation: blowAway 0.6s ease-out forwards;
+        }
+        .blown-out .flame::before,
+        .blown-out .flame::after {
+            opacity: 0 !important;
+        }
+
+                .blown-out .smoke {
+            animation: smoke 2s ease-out;
+        }
+        
+        @keyframes smoke {
+            0% { opacity: 1; transform: translateY(0) scale(0.9); }
+            50% { opacity: 0.7; transform: translateY(-15px) scale(1.05); }
+            100% { opacity: 0; transform: translateY(-35px) scale(1.1); }
+        }
+
+        @keyframes blowAway {
+            0% { opacity: 1; transform: translateX(0) translateY(0) scale(1) rotate(0deg); box-shadow: 0 0 14px rgba(255, 165, 0, 0.9); }
+            50% { opacity: 0.5; transform: translateX(var(--windX, 10px)) translateY(-6px) scale(0.85) rotate(-8deg); box-shadow: 0 0 6px rgba(255, 165, 0, 0.4); }
+            100% { opacity: 0; transform: translateX(calc(var(--windX, 10px) * 1.8)) translateY(-12px) scale(0.6) rotate(-15deg); box-shadow: 0 0 0 rgba(255, 165, 0, 0); }
+        }
+
+        .instruction {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #ffd6a5;
+        }
+
+        .wish-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 6, 30, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .wish-popup.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .countdown {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #ff6b8a;
+            text-shadow: 0 0 20px rgba(255, 107, 138, 0.7);
+            margin-bottom: 30px;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+        }
+
+        .wish-message {
+            color: #ffd6a5;
+            font-size: 2rem;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .wish-instruction {
+            color: #e0c7ff;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .love-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 15px;
+            border-left: 3px solid #ff6b8a;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .message-box:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .message-box i {
+            color: #ffd6a5;
+            margin-right: 10px;
+        }
+
+        .gift-section {
+            text-align: center;
+            padding: 50px 20px;
+            margin: 40px 0 20px;
+        }
+
+        .gift-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .gift-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gift-box.open {
+            transform: rotateY(180deg);
+        }
+
+        .gift-lid, .gift-base, .gift-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .gift-lid {
+            background: linear-gradient(135deg, #ff6b8a, #ff9ab3);
+            box-shadow: 0 10px 25px rgba(255, 107, 138, 0.3);
+            transform: translateY(-20px);
+            z-index: 2;
+        }
+
+        .gift-base {
+            background: linear-gradient(135deg, #ff9ab3, #ff6b8a);
+            box-shadow: 0 10px 25px rgba(255, 107, 138, 0.3);
+            z-index: 1;
+        }
+
+        .ribbon {
+            position: absolute;
+            background: #ffd6a5;
+            z-index: 3;
+        }
+
+        .ribbon-horizontal {
+            width: 100%;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ribbon-vertical {
+            width: 20px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ribbon-bow {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #ffd6a5;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+            box-shadow: 0 0 15px rgba(255, 214, 165, 0.5);
+        }
+
+        .gift-content {
+            background: transparent;
+            border-radius: 10px;
+            transform: rotateY(180deg);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Full-screen poem overlay */
+        .poem-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 6, 30, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+        }
+
+        .poem-overlay.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .poem {
+            text-align: center;
+            color: #ffd6a5;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem; /* Larger font size */
+            line-height: 1.8; /* Better line spacing */
+            padding: 40px; /* More padding */
+            max-width: 90%;
+            width: 800px;
+            max-height: 90vh;
+            overflow-y: auto; /* Scrollable if needed */
+            position: relative;
+        }
+
+        .poem p {
+            margin-bottom: 1.5rem;
+        }
+
+        .close-poem {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: transparent;
+            border: none;
+            color: #ff6b8a;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .close-poem:hover {
+            background: rgba(255, 107, 138, 0.2);
+            transform: scale(1.1);
+        }
+
+        .gift-instruction {
+            color: #ffd6a5;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #ff6b8a;
+            opacity: 0;
+            animation: float 8s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .music-control i {
+            font-size: 24px;
+            color: #ffd6a5;
+        }
+
+        @media (max-width: 900px) {
+            .love-message-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .photo-frame {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .right-section {
+                width: 100%;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .poem {
+                font-size: 1.8rem;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .poem {
+                font-size: 1.5rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="heartsContainer"></div>
+    
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="title">Happy Birthday, My Love!</h1>
+                <p class="subtitle">Today is your special day, and I want to make it as magical as you are</p>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="left-section">
+                <h2 class="section-title">To the Love of My Life</h2>
+                
+                <!-- Container for message and photo -->
+                <div class="love-message-container">
+                    <div class="message-container">
+                        <p class="message">
+                            On this special day, I want you to know how incredibly grateful I am to have you in my life. 
+                            Your smile brightens my darkest days, your laughter is my favorite melody, and your love 
+                            is the greatest gift I've ever received.
+                        </p>
+                        <p class="message">
+                            I hope this little surprise brings a smile to your face. Blow out the candles on your virtual cake 
+                            and make a wish - I promise it will come true!
+                        </p>
+                        <p class="message">
+                            You are the most beautiful person I've ever known, both inside and out. Every day with you feels like 
+                            a blessing, and I cherish every moment we spend together.
+                        </p>
+                    </div>
+                    
+                    <!-- Photo frame for your girlfriend - UPDATED -->
+                    <div class="photo-frame" id="princessPhoto">
+                        <div class="photo-placeholder">
+                            <span class="princess-text">Click here to see the princess</span>
+                            <i class="fas fa-heart"></i>
+                            <img id="herPhoto" src="her-photo.jpg" alt="Her beautiful photo">
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Why I Love You</h2>
+                <div class="love-messages">
+                    <div class="message-box">
+                        <i class="fas fa-smile"></i> For your beautiful smile that lights up my world
+                    </div>
+                    <div class="message-box">
+                        <i class="fas fa-laugh"></i> For your infectious laughter that brightens my day
+                    </div>
+                    <div class="message-box">
+                        <i class="fas fa-heart"></i> For your kind heart that always cares for others
+                    </div>
+                    <div class="message-box">
+                        <i class="fas fa-brain"></i> For your brilliant mind that inspires me every day
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-section">
+                <h2 class="section-title">Make a Wish!</h2>
+                <p class="message" style="text-align: center;">
+                    Blow out the candles on your birthday cake and make a special wish. 
+                    The universe is listening...
+                </p>
+                
+                <div class="cake-container">
+                    <div class="cake"></div>
+                    <div class="candle-container" id="candleContainer">
+                        <!-- Candles will be added here by JavaScript -->
+                    </div>
+                </div>
+                
+                <p class="instruction">
+                    Click on each candle to blow it out and make your wish!
+                </p>
+                
+                <div class="message" style="text-align: center; margin-top: 20px;">
+                    <i class="fas fa-gift" style="color: #ffd6a5;"></i> 
+                    I have a special surprise for you later today. 
+                    Get ready for an unforgettable celebration!
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gift section at the bottom -->
+        <div class="gift-section">
+            <h2 class="section-title">Your Special Birthday Gift</h2>
+            <p class="gift-instruction">Click on the gift box to reveal your surprise!</p>
+            
+            <div class="gift-container" id="giftContainer">
+                <div class="gift-box" id="giftBox">
+                    <div class="gift-lid">
+                        <div class="ribbon ribbon-horizontal"></div>
+                        <div class="ribbon ribbon-vertical"></div>
+                        <div class="ribbon-bow"></div>
+                    </div>
+                    <div class="gift-base"></div>
+                    <div class="gift-content">
+                        <div class="poem" style="display: none;">
+                            <!-- Poem will be displayed in the overlay -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Full-screen poem overlay -->
+    <div class="poem-overlay" id="poemOverlay">
+        <button class="close-poem" id="closePoem">×</button>
+        <div class="poem">
+            <p>My dearest love, on this your special day,</p>
+            <p>I searched for words that perfectly convey</p>
+            <p>The depth of love I carry in my heart,</p>
+            <p>Of which you are the most essential part.</p>
+            <br>
+            <p>Your laughter is a melody so sweet,</p>
+            <p>Your tender smile makes my existence complete.</p>
+            <p>With every passing year, you shine more bright,</p>
+            <p>A beacon in my day, my star at night.</p>
+            <br>
+            <p>So blow the candles, make a wish come true,</p>
+            <p>For all my wishes center around you.</p>
+            <p>May joy and love be yours the whole year through,</p>
+            <p>Happy birthday, my love, I cherish you.</p>
+        </div>
+    </div>
+    
+    <div class="wish-popup" id="wishPopup">
+        <div class="countdown" id="countdown">7</div>
+        <div class="wish-message">Make your wish, my love...</div>
+        <div class="wish-instruction">Close your eyes and focus on your deepest desire</div>
+    </div>
+    
+    <footer style="text-align: center; padding: 20px; color: #e0c7ff;">
+        <p>Made with <i class="fas fa-heart" style="color: #ff6b8a;"></i> for the most amazing person in my life</p>
+    </footer>
+
+    <!-- Music control button -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-pause" id="musicIcon"></i>
+    </div>
+
+    <!-- Audio element for the princess song -->
+            <audio id="princessSong">
+            <source src="I Think They Call This Love (Cover) - Matthew Ifield.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 30;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                heart.style.fontSize = `${Math.random() * 1 + 1}rem`;
+                container.appendChild(heart);
+            }
+        }
+        
+        // Set up candles
+        function setupCandles() {
+            const container = document.getElementById('candleContainer');
+            const candleCount = 7;
+            
+            for (let i = 0; i < candleCount; i++) {
+                const candle = document.createElement('div');
+                candle.classList.add('candle');
+                
+                const wick = document.createElement('div');
+                wick.classList.add('wick');
+
+                const flame = document.createElement('div');
+                flame.classList.add('flame');
+                // Desync each flame's animations
+                flame.style.animationDelay = `${(Math.random()*1.5).toFixed(2)}s, ${(Math.random()*1).toFixed(2)}s, ${(Math.random()*1).toFixed(2)}s`;
+                
+                const smoke = document.createElement('div');
+                smoke.classList.add('smoke');
+                
+                candle.appendChild(wick);
+                candle.appendChild(flame);
+                candle.appendChild(smoke);
+                container.appendChild(candle);
+                
+                // Add click event to blow out candle
+                candle.addEventListener('click', () => blowOutCandle(candle));
+            }
+        }
+        
+        // Blow out a single candle
+        function blowOutCandle(candle) {
+            if (candle.classList.contains('blown-out')) return;
+            
+            // Set a random wind direction/speed for this candle blowout
+            const direction = Math.random() > 0.5 ? 1 : -1;
+            const windX = 8 + Math.random() * 10;
+            const flameEl = candle.querySelector('.flame');
+            if (flameEl) flameEl.style.setProperty('--windX', `${direction * windX}px`);
+
+            candle.classList.add('blown-out');
+            
+            // Play blowing sound
+            playBlowSound();
+
+            // Emit smoke particles for a nicer effect
+            emitSmokeBurst(candle);
+            
+            // Check if all candles are blown out
+            setTimeout(() => {
+                const allCandles = document.querySelectorAll('.candle');
+                const blownOut = document.querySelectorAll('.candle.blown-out');
+                
+                if (allCandles.length === blownOut.length) {
+                    showWishPopup();
+                }
+            }, 500);
+        }
+        
+        // Play blowing sound effect
+        function playBlowSound() {
+            const blowSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-single-blow-candle-458.mp3");
+            blowSound.volume = 0.4;
+            blowSound.play().catch(e => console.log("Audio play prevented by browser policy"));
+        }
+
+        // Emit multiple smoke particles with varied timing/sizes
+        function emitSmokeBurst(candle) {
+            const puffCount = 6 + Math.floor(Math.random() * 4);
+            for (let i = 0; i < puffCount; i++) {
+                const puff = document.createElement('div');
+                puff.classList.add('smoke');
+                const width = 3 + Math.random() * 3;
+                const height = 10 + Math.random() * 10;
+                puff.style.width = width + 'px';
+                puff.style.height = height + 'px';
+                puff.style.left = (3 + (Math.random() * 4 - 2)) + 'px';
+                puff.style.top = '-36px';
+                puff.style.opacity = '1';
+                const duration = 1.6 + Math.random() * 1.2;
+                const delay = Math.random() * 0.25;
+                puff.style.animation = `smoke ${duration}s ease-out ${delay}s forwards`;
+                candle.appendChild(puff);
+                setTimeout(() => puff.remove(), (duration + delay) * 1000 + 50);
+            }
+        }
+        
+        // Show wish popup
+        function showWishPopup() {
+            const popup = document.getElementById('wishPopup');
+            popup.classList.add('visible');
+            
+            // Start countdown
+            let seconds = 7;
+            const countdownEl = document.getElementById('countdown');
+            countdownEl.textContent = seconds;
+            
+            const countdownInterval = setInterval(() => {
+                seconds--;
+                countdownEl.textContent = seconds;
+                
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    popup.classList.remove('visible');
+                    
+                    // Reset candles after a delay
+                    setTimeout(() => {
+                        document.querySelectorAll('.candle').forEach(candle => {
+                            candle.classList.remove('blown-out');
+                            const flameEl = candle.querySelector('.flame');
+                            if (flameEl) {
+                                flameEl.style.removeProperty('--windX');
+                                // Restart flame animations by forcing reflow
+                                flameEl.style.animation = 'none';
+                                void flameEl.offsetWidth;
+                                flameEl.style.animation = 'flicker 1.5s infinite alternate, sway 2s ease-in-out infinite, glowPulse 2s ease-in-out infinite';
+                            }
+                        });
+                    }, 3000);
+                }
+            }, 1000);
+        }
+        
+        // Gift box animation
+        const giftBox = document.getElementById('giftBox');
+        const giftContainer = document.getElementById('giftContainer');
+        const poemOverlay = document.getElementById('poemOverlay');
+        const closePoem = document.getElementById('closePoem');
+        
+        giftContainer.addEventListener('click', () => {
+            if (giftBox.classList.contains('open')) {
+                return;
+            }
+            
+            // Add the open class to trigger animation
+            giftBox.classList.add('open');
+            
+            // Create floating hearts from the gift box
+            createGiftHearts();
+            
+            // Play unwrapping sound
+            playUnwrapSound();
+            
+            // Show the poem overlay after a delay
+            setTimeout(() => {
+                poemOverlay.classList.add('visible');
+            }, 1500);
+        });
+        
+        closePoem.addEventListener('click', () => {
+            poemOverlay.classList.remove('visible');
+        });
+        
+        function createGiftHearts() {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤';
+                    heart.style.left = `${50 + (Math.random() * 20 - 10)}%`;
+                    heart.style.top = `${50 + (Math.random() * 20 - 10)}%`;
+                    heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                    heart.style.fontSize = `${Math.random() * 1 + 1.5}rem`;
+                    heart.style.color = '#ff6b8a';
+                    heart.style.zIndex = '10';
+                    giftContainer.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }, i * 150);
+            }
+        }
+        
+        function playUnwrapSound() {
+            const unwrapSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-wrapping-paper-1010.mp3");
+            unwrapSound.volume = 0.5;
+            unwrapSound.play().catch(e => console.log("Audio play prevented by browser policy"));
+        }
+        
+        // Princess photo and song functionality
+        const princessPhoto = document.getElementById('princessPhoto');
+        const princessSong = document.getElementById('princessSong');
+        const herPhoto = document.getElementById('herPhoto');
+        const musicControl = document.getElementById('musicControl');
+        const musicIcon = document.getElementById('musicIcon');
+        
+        princessPhoto.addEventListener('click', function() {
+            // Hide the text and heart icon
+            const text = this.querySelector('.princess-text');
+            const heartIcon = this.querySelector('.fa-heart');
+            
+            if (text) text.style.display = 'none';
+            if (heartIcon) heartIcon.style.display = 'none';
+            
+            // Show the image
+            herPhoto.style.display = 'block';
+            
+            // Play the princess song
+            try {
+                princessSong.play();
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+                
+                // Add visual effect
+                this.style.transform = 'scale(1.1)';
+                this.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.8)';
+                
+                // Create sparkles around the photo
+                createSparkles(this);
+                
+                // Show song started message
+                const message = document.createElement('div');
+                message.textContent = 'Your song is playing!';
+                message.style.position = 'absolute';
+                message.style.bottom = '-40px';
+                message.style.left = '50%';
+                message.style.transform = 'translateX(-50%)';
+                message.style.color = '#ffd6a5';
+                message.style.fontWeight = 'bold';
+                message.style.animation = 'fadeInOut 3s';
+                this.appendChild(message);
+                
+                // Remove message after animation
+                setTimeout(() => {
+                    message.remove();
+                }, 3000);
+            } catch (e) {
+                alert('Could not play the song. Please check the file path.');
+                console.error('Audio play error:', e);
+            }
+        });
+        
+        // Music control button
+        let isPlaying = false;
+        musicControl.addEventListener('click', () => {
+            if (isPlaying) {
+                princessSong.pause();
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-play');
+            } else {
+                princessSong.play();
+                musicIcon.classList.remove('fa-play');
+                musicIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // Update music icon based on playback status
+        princessSong.addEventListener('play', () => {
+            musicIcon.classList.remove('fa-play');
+            musicIcon.classList.add('fa-pause');
+            isPlaying = true;
+        });
+        
+        princessSong.addEventListener('pause', () => {
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-play');
+            isPlaying = false;
+        });
+        
+        function createSparkles(element) {
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'absolute';
+                sparkle.style.width = '10px';
+                sparkle.style.height = '10px';
+                sparkle.style.background = 'radial-gradient(circle, #fff, #ffd700)';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.opacity = '0';
+                
+                // Position around the photo
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 120;
+                sparkle.style.left = `calc(50% + ${Math.cos(angle) * distance}px)`;
+                sparkle.style.top = `calc(50% + ${Math.sin(angle) * distance}px)`;
+                
+                // Add to the photo frame
+                element.appendChild(sparkle);
+                
+                // Animate the sparkle
+                animateSparkle(sparkle);
+            }
+        }
+        
+        function animateSparkle(sparkle) {
+            // Random animation properties
+            const duration = Math.random() * 1 + 1;
+            const delay = Math.random() * 0.5;
+            
+            sparkle.style.animation = `
+                sparkleMove ${duration}s ease-out ${delay}s forwards,
+                sparkleFade ${duration}s ease-out ${delay}s forwards
+            `;
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (sparkle.parentNode) {
+                    sparkle.parentNode.removeChild(sparkle);
+                }
+            }, (duration + delay) * 1000);
+        }
+        
+        // Add sparkle animation to CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleMove {
+                0% { transform: translate(0, 0) scale(0); }
+                100% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) scale(1.5); }
+            }
+            
+            @keyframes sparkleFade {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+            
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+                30% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                70% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            createHearts();
+            setupCandles();
+        });
+    </script>
+</body>
+</html>
